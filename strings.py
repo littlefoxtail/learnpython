@@ -61,4 +61,7 @@ print(word[-2:5])
 # 0   1   2   3   4   5   6
 # -6  -5  -4  -3  -2  -1 
 
-# String中字符串是不可变得
+# String中字符串是不可变得，更改string会报错
+
+# len方法可以返回字符串的长度
+print(len(word))
