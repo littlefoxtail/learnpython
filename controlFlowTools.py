@@ -151,3 +151,25 @@ cheeseshop("Limburger", "It's very runny, sir.",
            client="John Cleese",
            sketch="Cheese Shop Sketch")
 
+# 任意的参数列表 在*args只能是关键字参数
+def concat(*args, seq="/"):
+    return seq.join(args)
+
+print(concat('earth', 'mars', 'venus'))
+print(concat('我',"好",'气',seq="."))
+
+
+# 拆包参数列表 *操作符-->拆包列表和元祖的参数列表
+print(list(range(3, 6))) # 正常的调用，分开的参数
+
+args = [3, 6]
+print(list(range(*args)))
+
+# 同理 ** 操作符 字典可以被释放
+def goway(voltage, state='a stiff', action='voom'):
+    print('反补世界树', action, end=' ')
+    print("塔下意识粉", voltage, '残血A回复', end=' ')
+    print("跳刀躲梅肯", state, '!')
+
+d = {"voltage": "four million", "state": "bleedin' demised", "action": "VOOM"}
+goway(**d)
