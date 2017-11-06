@@ -173,3 +173,37 @@ def goway(voltage, state='a stiff', action='voom'):
 
 d = {"voltage": "four million", "state": "bleedin' demised", "action": "VOOM"}
 goway(**d)
+
+# lambda表达式
+# lambda关键字，语法上仅限于单个表达式，语义上，它们只是一个正常功能定义的语法糖
+# lambda函数可以引用来自范围的变量
+
+# lambda_expr  :: "lambda" [parameter_list]: expression
+# def <lambda>(arguments):
+#    return expression
+
+def make_incrementor(n):
+    return lambda x: x + n
+
+f = make_incrementor(42)
+print(f(10))
+print(f(10))
+
+pairs = [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
+print(lambda pair: pair[1])
+
+def lambda1(pair):
+    return pair[0]
+
+# pairs.sort(key=lambda1)
+# print(pairs)
+pairs.sort(key=lambda pair: pair[1])
+print(pairs)
+
+# 注解
+def f(ham: str, eggs: str = 'eggs') -> str:
+    print('Annotations:', f.__annotations__)
+    print('Arguments:', ham, eggs)
+    return ham + ' and' + eggs
+
+f('spam')
