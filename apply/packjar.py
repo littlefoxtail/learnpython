@@ -3,19 +3,18 @@ import shutil
 #清空目录
 
 
-def del_dir_tree(path):
-    if os.path.isfile(path):
+def del_dir_tree(folder):
+    for the_file in os.listdir(folder):
+        file_path = os.path.join(folder, the_file)
         try:
-            os.remove(path)
+            if os.path.isfile(file_path):
+                os.unlink(file_path)
+            elif os.path.isdir(file_path):
+                shutil.rmtree(file_path)
         except Exception as e:
-            #pass
             print(e)
-    elif os.path.isdir(path):
-        for item in os.listdir(path):
-            itempath = os.path.join(path, item)
-            del_dir_tree(itempath)
 
-del_dir_tree('/Users/yetu/Downloads/mergejar/')   
+del_dir_tree('/Users/yetu/Downloads/mergejar/')  
 
 # 拷贝文件到merge
 shutil.copy('/Users/yetu/work/qiyi/appstore/AppStoreSDK/build/intermediates/bundles/debug/classes.jar', '/Users/yetu/Downloads/mergejar/classes.jar')
