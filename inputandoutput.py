@@ -69,3 +69,28 @@ print('Jack: {0[Jack]:d}; Sjoerd: {0[Sjoerd]:d}; '
 print('Jack: {Jack:d}; Sjoerd: {Sjoerd:d}; Dcab: {Dcab:d}'.format(**table))
 
 print(vars())
+
+# old string formatting
+print('The value of PI is approximately %5.3f.' % math.pi)
+
+# 读写文件 第一个参数包含文件名，第二个参数是代表模式'r'文件只能被读 'w'只能被写 'a'代表文件会被添加 'r+'代表读写，
+f = open('apply/font/font2.txt', 'r')
+f.close()
+# 使用with关键字，文件会在合适时间自动关闭
+
+# 文件对象的方法 read方法 读取一些数据
+with open('apply/font/font2.txt', 'r') as f:
+    # print(f.read(222))
+    # print(f.read(12))
+    # print(repr(f.readline()))
+    for line in f:
+        print(line, end='')
+    # print(list(f))
+    # print(f.readlines())
+    print(f.tell())
+
+# write方法
+with open('apply/font/ll.txt', 'w') as f:
+    value = ('the answer', 42)
+    s = str(value)
+    f.write(s)
