@@ -1,1 +1,4 @@
 .vscode
+__pycache__
+apply/__pycache__
+apply/packageexample/__pycache__
