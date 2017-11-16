@@ -6,5 +6,3 @@ with open('font2.txt', 'r', encoding="utf-8") as frworigin:
             newtext = re.sub('[\s+]', '', originline)
             print(newtext)
             frwoutput.write(newtext)
-
-
