@@ -109,8 +109,30 @@ with open('output/writeobject.txt', 'w') as f:
     print(f.write(s))
 
 with open('output/seekwrite.txt', 'wb+') as f1:
-    print(f1.write(b'0123456789abcdef'))
+    print(f1.write(b'Hello World'))
     print(f1.seek(5))
     print(f1.read(1))
-    print(f1.seek(-3, 2))
+    print(f1.seek(-3, 2)) # seek(offset, from_what) 通过将偏移量添加到参考点来计算；参考点由
+    # from_what选择， 0：文件开始 1：当前文件位置 2：文件结尾
     print(f1.read(1))
+
+# 在读写二进制数据的时候，字节字符串和文本字符串的语义差异可能会导致一个潜在的陷阱。
+# 索引和迭代动作返回的是字节的值而不是字节字符串
+t = 'Hello World'
+for c in t:
+    print(c)
+
+b = b'Hello World'
+for c in b:
+    print(c)
+# 在文本文件中（在模式字符串中没有b的情况下打开的文件），
+# 只允许相对于文件的开头寻找（例外情况是以seek（0，2）寻找文件尾），
+# 唯一有效的偏移值是 那些从f.tell（）返回的，或者是零。 任何其他偏移值都会产生未定义的行为。
+
+# 用json保存结构化数据
+import json
+print(json.dumps([1, 'simple', 'list']))
+
+print(json.dumps("\"foo\bar"))
+
+print(json.dumps([1, 2, 3, {'4': 5, '6': 7}]))

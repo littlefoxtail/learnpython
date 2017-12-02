@@ -71,6 +71,168 @@ print([x**2 for x in range(10)])
 # 所以凡是可以for循环的，都是可以迭代的
 # 凡是可以next的，都是迭代器
 
+# itertion 就是迭代，一个接一个，是一个通用的概念，比如一个循环遍历某个数组
+# iterable 这个是可迭代对象，属于python名称，范围也很广，可重复迭代，满足如下之一都是
+    # 可以for循环
+    # 可以按index索引的对象，就是定义了getitem方法，比如list,str
+    # 定义了__iter__方法，可以随意返回
+    # 可以调用iter(obj)，并且返回iterator
+# iterator 迭代器对象，也属于python名词，只能迭代一次。需要满足如下迭代器协议
+    # 定义了__iter__方法，但是必须返回自身
+    # 定义了__next__方法。用来返回下一个值，并且当没有数据了，抛出StopIteration可以保持当前的状态
+
+# ------------------
+# str和list是iterable 但不是iterator
+print('********************************')
+
+si = iter('Hello')
+print(si)  # iter(obj)返回iterator
+print(si.__iter__) # 拥有__iter__
+print(si.__next__) # 包含next方法
+
+print(si.__iter__() is si) # __iter__()返回的是自身
+
+class DataIter(object):
+
+    def __init__(self, *args):
+        self.data = list(args)
+        self.ind = 0
+
+    def __iter__(self): #返回自身
+        return self
+
+    def __next__(self): #　返回数据
+        if self.ind == len(self.data):
+           raise StopIteration
+        else:
+           data = self.data[self.ind]
+           self.ind += 1
+           return data
+d = DataIter(1, 2)
+print(d)
+for x in d:
+    print(x)
+# print(d.__next__())
+# iterator只能迭代一次，iteraable对象则没有这个限制
+
+class Data(object):
+
+    def __init__(self, *args):
+        self.data = list(args)
+    
+    def __iter__(self):
+        return DataIterator(self)
+
+class DataIterator(object):
+    def __init__(self, data):
+        self.data = data.data
+        self.ind = 0
+
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+        if self.ind == len(self.data):
+            raise StopIteration
+        else:
+            data = self.data[self.ind]
+            self.ind += 1
+            return data
+
+da = Data(1, 2, 3)
+for x in da:
+    print(x)
+for x in da:
+    print(x)
+print('********************************')
+
+# 迭代器的功能可以使用列表代替，但如果有很多值，列表就会占用太多的内存
+
+# 对于要返回迭代器的类,要实现iterator.iter()，iterator.next()
+
+# 迭代器对象被要求支持下面的两个方法，合起来形成迭代协议。
+
+# iterator._iter_()
+
+# 返回迭代器对象自身。为了允许容器和迭代器被用于for和in语句中，必须实现该方法。
+
+# iterator._next_() 
+# 返回容器的下一个条目。如果没有更多的条目，抛出StopIteration异常
+
+# 另外需要注意的是在迭代器中next方法是return下一个元素的值
+
+# ------------------------------------------------------------------------
+# 生成器(generator) 是创建迭代器的简单而强大的工具。它们写起来就像是正规的函数，只是在需要返回数据的时候使用yield语句。每次next()被调用时，生成器会返回它脱离的位置（它记忆语句最后一次执行的位置和所有的数据值
+# 任何使用yield的函数都称之为生成器，唯一的区别在于实现方式上不一样，后者更加简洁
+
+# 首先明确的就是生成器也是iterator迭代器，因为它遵循了迭代器协议，生成器函数跟普通的函数只有一点不一样
+# 把return换成了yield，其中yield是一个语法糖，内部实现了迭代器协议，同时保持状态可以挂起
+# (自动创建了__iter__()和__next__()方法，生成器显的很简洁)
+# 另外一种说法：生成器就是一个返回迭代器的函数，与普通函数的区别是生成器包含yield语句，更简单点理解生成器就是一个迭代器
+# 使用yield，可以让函数生成一个序列，该函数返回的对象类型是"generator"，通过该对象连续调用next方法返回序列值
+
+def count(n):
+    print('cunting')
+    while n > 0:
+        print('before yield')
+        yield n
+        print(n)
+        n -= 1
+        print('after yield')
+
+# c = count(7)
+# print(type(c))
+# c.__next__()
+
+# c.__next__()
+
+# c.__next__()
+
+for i in count(5):
+    print(i)
+
+
+# 还有一种定义生成器的方法：生成器表达式 类似于推导式，但是生成器返回按需产生结果的一个对象，而不是一次构建一个结构列表
+# 将列表推导式的中括号换成圆括号，就是一个生成器
+
+print(type(x for x in 'abracadabra' if x not in 'abc'))
+print(list(x for x in 'abracadabra' if x not in 'abc'))
+print(tuple(x for x in 'abracadabra' if x not in 'abc'))
+print(set(x for x in 'abracadabra' if x not in 'abc'))
+
+# 推导式是一个或者多个迭代器快速简洁创建数据结构的一种方法
+
+# 列表推导式
+# [expression for item in iterable]
+
+# 加上条件表达式形式
+# [expression for item x in iterable if condition]
+
+# 多个for的嵌套表达式
+# [(x, y) for x in x_list fo y in y_list]
+
+# 字典推导式
+# [key_expression:value_expression for expression in iterable]
+
+# 集合推导式
+# {expression for item in iterable}
+
+# 生成器推导式
+# 元祖没有推导式，它的圆括号是用来生成生成器推导式
+# 生成器可以转化成列表推导式t_list = list(t_generotor)
+
+# 使用zip并行迭代，zip函数在最短序列用完就会停止
+# 配合ditc()函数和zip()函数的返回值可以得到一个字典. 
+days= {'monday' , 'tuesday', 'wednesday'}
+fruit= {'banana', 'orange', 'peach'}
+dessert = {'misc', 'drink', 'ice', 'pudding'}
+for day,fru,drink in zip(days,fruit,dessert):
+    print(day, fru, drink)
+
+print('***********************************')
+
+# -------------------------------------------------------------------
+
 print([(x, y) for x in [1, 2, 3] for y in [3, 1, 4] if x != y])
 
 # 与下面相同
