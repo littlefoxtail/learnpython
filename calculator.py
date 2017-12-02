@@ -36,6 +36,17 @@ print(float(121 + 212))
 # Pair (余数,)
 print(divmod(2, 5))
 
+print('---')
+
+print(1 << 1)
+print(1 << 2)
+print(1 << 3)
+print(1 << 4)
+print(1 << 102)
+
+flags = 1 << 2 | 1 << 3
+print(flags & 1 << 2)
+
 
 
 
