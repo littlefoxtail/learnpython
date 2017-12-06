@@ -1,2 +1,2 @@
 import os
-os.system('character-map -f DEFAULT.TTF > map.txt')
+os.system('character-map -f FZFYSJW.ttf > youku.txt')
