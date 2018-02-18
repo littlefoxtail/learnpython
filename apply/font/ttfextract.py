@@ -1,2 +1,2 @@
 import os
-os.system('character-map -f FZFYSJW.ttf > youku.txt')
+os.system('character-map -f compress.ttf > legao.txt')
