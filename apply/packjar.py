@@ -2,7 +2,7 @@ import os
 import shutil
 #清空目录
 
-
+basefolder = '/Users/yetu/Downloads/mergejar/'
 def del_dir_tree(folder):
     for the_file in os.listdir(folder):
         file_path = os.path.join(folder, the_file)
@@ -14,7 +14,11 @@ def del_dir_tree(folder):
         except Exception as e:
             print(e)
 
-del_dir_tree('/Users/yetu/Downloads/mergejar/')  
+exists  = os.path.exists(basefolder)
+if exists:
+    del_dir_tree(basefolder)  
+else:
+    os.makedirs(basefolder)
 
 # 拷贝文件到merge
 shutil.copy('/Users/yetu/work/qiyi/appstore/AppStoreSDK/build/intermediates/bundles/debug/classes.jar', '/Users/yetu/Downloads/mergejar/classes.jar')
