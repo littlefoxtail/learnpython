@@ -23,9 +23,9 @@ else:
 # 拷贝文件到merge
 shutil.copy('/Users/yetu/work/qiyi/appstore/AppStoreSDK/build/intermediates/bundles/debug/classes.jar', '/Users/yetu/Downloads/mergejar/classes.jar')
 shutil.copy('/Users/yetu/work/qiyi/appstore/AppStoreDetailPage/build/intermediates/bundles/debug/classes.jar', '/Users/yetu/Downloads/mergejar/classes2.jar')
-shutil.copy('/Users/yetu/work/qiyi/appstore/AppStoreDetailPage/libs/galaTask.jar', '/Users/yetu/Downloads/mergejar/galaTask.jar')
+# shutil.copy('/Users/yetu/work/qiyi/appstore/AppStoreDetailPage/libs/galaTask.jar', '/Users/yetu/Downloads/mergejar/galaTask.jar')
 shutil.copy('/Users/yetu/work/qiyi/appstore/AppStoreDetailPage/libs/gson-2.2.4.jar', '/Users/yetu/Downloads/mergejar/gson.jar')
-shutil.copy('/Users/yetu/work/qiyi/appstore/AppStoreDetailPage/libs/galaTask.jar', '/Users/yetu/Downloads/mergejar/galaTask.jar')
+# shutil.copy('/Users/yetu/work/qiyi/appstore/AppStoreDetailPage/libs/galaTask.jar', '/Users/yetu/Downloads/mergejar/galaTask.jar')
 shutil.copy('/Users/yetu/work/qiyi/appstore/AppStoreDetailPage/libs/libAppManager_20170406.jar', '/Users/yetu/Downloads/mergejar/libAppManager_20170406.jar')
 shutil.copy('/Users/yetu/work/qiyi/appstore/AppStoreDetailPage/libs/libDownloadManager_20170615.jar', '/Users/yetu/Downloads/mergejar/libDownloadManager_20170615.jar')
 shutil.copy('/Users/yetu/work/qiyi/appstore/AppStoreDetailPage/libs/libTVGameUtils_20170406.jar', '/Users/yetu/Downloads/mergejar/libTVGameUtils_20170406.jar')
