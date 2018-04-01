@@ -12,6 +12,7 @@
 #     print('More')
 
 # for语句
+
 words = ['cat', 'window', 'defenestrate']
 for w in words:
     print(w, len(w))
@@ -34,6 +35,10 @@ for i in range(len(a)):
 
 # range返回的是一个对象，而不是一个列表， list函数是一个迭代器,创建一个列表从 可迭代的
 print(list(range(10)))
+
+print('---------------')
+
+print(list(range(1, 2)))
 
 # break continue 和 else
 # break 跳出循环
@@ -60,6 +65,7 @@ def fib(n):
     print(a)
 
 fib(100)
+
 
 # def关键字用于定义函数，
 
