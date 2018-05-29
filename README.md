@@ -1,4 +1,13 @@
 # Python
+Python是一门解释型语言，因为无需编译和链接，可以在程序开发中节省宝贵的时间。
+Python让程序编写的紧凑和可读。用Python编写的程序通常比同样的C、C++或者Java程序更短小，这是因为以下几个原因
+- 高级数据结构使你可以在一条语句中表达复杂的操作
+- 语句组使用缩进代替开始和技术大括号来组织
+- 变量或参数无需声明
+
+## Python简介
+[Python简介](tutorial/3_Python简介.md)
+
 ## 深入Python流程控制
 
 [流程控制示例代码](python_tutorial/more_control_flow_tools.py)

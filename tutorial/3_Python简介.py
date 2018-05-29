@@ -1,6 +1,56 @@
-# -*- coding: utf-8 -*-
+# -*- coding:utf-8 -*-
+
 """
-python中的字符串
+python中的计算
+"""
+
+# 除法的话返回的类型是带小数点的
+print(17 / 3)
+print((60 - 5 * 6) / 4)
+
+# 这么除放弃小数点
+print(17 // 3)
+
+# 取余数
+print(17 % 3)
+
+# 取指数
+# 平方
+print(5 ** 2)
+
+print(2 ** 7)
+
+# 多种数据进行运算，整形会转成浮点数
+print(4 * 3.751 - 1)
+
+# 虚数
+print((3 + 5j) + 2)
+
+# 绝对值
+print(abs(-12 + 5))
+
+# 转成整形
+print(int(4.545 + 3.332))
+
+# 转成浮点型
+print(float(121 + 212))
+
+# Pair (余数,)
+print(divmod(2, 5))
+
+print('---')
+
+print(1 << 1)
+print(1 << 2)
+print(1 << 3)
+print(1 << 4)
+print(1 << 102)
+
+flags = 1 << 2 | 1 << 3
+print(flags & 1 << 2)
+
+"""
+字符串
 """
 # 单引号和双引号
 print('spam eggs')
@@ -33,12 +83,12 @@ print(3 * "fda" + 'fd')
 # 字符串自动连接
 print("i" ' love' ' you')
 
-# 不能连接一个变量和一个字符串, 这个时候就得用+
+# 字符串自动连接，不能连接一个变量和一个字符串, 这个时候就得用+
 var = "love"
 print(var + " me")
 
 # 拆分长字符串的话
-TEXT = (u'你是什么东东啊 我了个擦'
+TEXT = ('你是什么东东啊 我了个擦'
        '打包你发嗲见覅大')
 print(TEXT)
 
@@ -65,3 +115,4 @@ print(word[-2:5])
 
 # len方法可以返回字符串的长度
 print(len(word))
+
