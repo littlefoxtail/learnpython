@@ -7,7 +7,7 @@ Python让程序编写的紧凑和可读。用Python编写的程序通常比同�
 
 ## Python简介
 [Python简介](tutorial/3_Python简介.md)<br/>
-[简介示例代码](tuborial/3_Python简介.py)<br/>
+[简介示例代码](tutorial/3_Python简介.py)<br/>
 
 ## 深入Python流程控制
 
