@@ -94,7 +94,11 @@ print(TEXT)
 
 # 字符索引
 word = 'Python'
+print(word[0])
 print(word[1])
+
+print(word[-1])
+print(word[-2])
 
 # 字符串切片 可以获取字符串
 print(word[0:2])
@@ -103,6 +107,17 @@ print(word[:4] + word[4:])
 
 # 切片都有默认值 省略值其实 0, size
 print(word[-2:5])
+
+# 切片的工作方式：切片时的索引是在两个字符之间。左边第一个字符的索引是0，而长度为n的字符串最后一个字符的右索引为n
+# 我怎么感觉也可以取头部取尾来记忆呢
+
+# 对于非负索引，如果上下都在边界内，切片的长度就是两个索引只差
+
+# 试图太大的索引会导致错误，但python能够优雅地处理那些没有意义的切片索引
+print('----')
+print(word[4:42])
+
+print(word[42:])
 
 # 咋记忆索引
 # +---+---+---+---+---+---+
@@ -115,4 +130,63 @@ print(word[-2:5])
 
 # len方法可以返回字符串的长度
 print(len(word))
+
+print(word[-1:])
+
+'''
+Python有几个复合数据类型，用于表示其它的值。
+List是一系列复合类型的数据类型中最通用的一种，用逗号分隔， List可以包含多种类型，但通常都用一种类型
+'''
+
+squares = [1, 4, 9, 16, 25]
+print(squares)
+
+# 集合和字符串一样，可以被索引和切片
+print(squares[1])
+
+print(squares[:4])
+
+#切片操作，返回一个新的列表，也可以返回一个浅拷贝
+print(squares[:])
+
+# 列表同样支持连接 +
+print(squares + [3429, 32, 32])
+
+# 和字符串不一样，列表是可变的，可以改变他们的内容
+cubes = [1, 8, 27, 65, 125]
+cubes[3] = 54
+print(cubes)
+
+# 也可以添加新的项目
+cubes.append(4343)
+print(cubes)
+
+# 列表的切片,还可以更改列表大小和清空
+print("改变列表大小和清空")
+cubes[:] = [1, 2, 3, 4]
+print(cubes)
+
+cubes[2:5] = [6, 7, 8]
+
+print(cubes)
+
+cubes[2:5] = []
+print(cubes)
+
+# 内建函数len同样适用列表
+letters = ['a', 'b', 'c', 'd']
+print(len(letters))
+
+
+# 列表还可以嵌套
+a = ['a', 'b', 'c']
+n = ['1', '2', '3']
+x = [1, 2, 3]
+print([a, n])
+print([a, n][0][1])
+
+a, b = 0, 1 
+while b < 100:
+    print(b, end=',')
+    a, b = b, a+b
 

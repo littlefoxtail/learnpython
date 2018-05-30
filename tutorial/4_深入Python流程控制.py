@@ -1,3 +1,5 @@
+# -*- coding:utf-8 -*-
+
 # if语句
 # x = int(input("Please enter an integer:"))
 

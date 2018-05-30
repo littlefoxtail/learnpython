@@ -7,10 +7,13 @@ Python让程序编写的紧凑和可读。用Python编写的程序通常比同�
 
 ## Python简介
 [Python简介](tutorial/3_Python简介.md)
+[简介示例代码](tuborial/3_Python简介.py)
 
 ## 深入Python流程控制
 
-[流程控制示例代码](python_tutorial/more_control_flow_tools.py)
+[流程控制](tutorial/4_深入Python流程控制.md)
+[流程控制示例代码](tutorial/4_深入Python流程控制.py)
+
 ### if语句
 if可能会有零到多个elif部分，else是可选的。关键字`elif`是`else if`的缩写。用于替代其他语言的`switch`或`case`语句
 
