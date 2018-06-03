@@ -1,3 +1,251 @@
+# -*- coding:utf-8 -*-
+# python内置一种数据类型是列表：list。list是一种有序的集合，可以随时添加和删除其中的元素
+from collections import deque
+my = ['penglong']
+
+classmates = ['Michael', 'Bob', 'Tracy']
+
+print(my + classmates)
+
+print(len(classmates))
+
+print(classmates[-1])
+
+print(classmates[-2])
+
+print(classmates[-3])
+
+classmates.append("负面情绪满满的怎么办")
+
+print(classmates)
+
+classmates.insert(1, "爱吃棒棒糖")
+
+print(classmates)
+
+classmates.pop()
+
+print(classmates)
+
+classmates.pop(1)
+
+print(classmates)
+
+classmates[:2] =[0, 0]
+
+print(classmates)
+
+print("more about list begin")
+
+print(classmates.count(0), classmates.count('Tracy'))
+
+classmates.insert(2, -1)
+classmates.append("作妖")
+
+print(classmates)
+
+print(classmates.index(-1))
+
+print(classmates.pop())
+
+print(classmates)
+
+
+
+print('more about list end')
+
+
+
+
+classmates[0] = '刘备'
+classmates[1]='关羽'
+classmates[2]='张飞'
+
+print(classmates)
+
+print('stack begin -----')
+
+classmates.append(6)
+classmates.append(7)
+
+classmates.pop()
+
+print(classmates)
+
+classmates.pop()
+print(classmates)
+
+print('stack end -----')
+
+
+# 队列
+print('queue begin -----')
+
+
+queue = deque(['张三', '李四', '王二'])
+queue.append('麻子')
+queue.append('蛋蛋')
+
+print(queue)
+print(queue.popleft())
+print(queue.popleft())
+
+print(queue)
+
+
+print('queue end -------')
+
+# 列表生成器
+print('list comprehensions begin')
+# map()会根据提供的函数对指定序列做映射
+
+# 第一个参数function以参数序列中的第一个元素调用function函数，返回包含每次function函数返回值的新列表
+
+
+squares = list(map(lambda x: x**2, range(10)))
+print(squares)
+
+# 等价于
+squares = [x**2 for x in range(10)]
+print(squares)
+vec = [-4, -2, 0, 2, 4]
+print([x*2 for x in vec])
+
+print([x for x in vec if x >= 0])
+
+print([abs(x) for x in vec])
+
+freshfruit = ['  banana', '  loganberry', 'passion fruit']
+print([weapon.strip() for weapon in freshfruit])
+
+vec = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+print([num for elem in vec for num in elem])
+
+# 列表推导式可使用复杂的表达式和嵌套函数
+
+from math import pi
+print([str(round(pi, i) for i in range(1, 6))])
+
+
+matrix = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12],
+]
+
+print([[row[i] for row in matrix] for i in range(4)])
+
+# zip函数用于将可迭代的对象作为对象，将对象中对应的元素打包成一个个元祖，然后返回由这些元祖组成的列表
+# 如果各个迭代器的元素个数不一致，则返回列表长度与最短的对象相同，利用*号操作符，可以将元祖解压列表
+a = [1, 2, 3]
+b = [4, 5, 6]
+zipped = zip(a, b)
+print(list(zipped))
+print('list comprehensions end')
+
+# del语句
+print('del begin')
+a = [-1, 1, 66.25, 333, 333, 1234.5]
+del a[0]
+print(a)
+del a[2:4]
+print(a)
+del a[:]
+print(a)
+print('del end')
+
+
+
+
+classmates[:] = []
+
+print(classmates)
+
+L = ['Apple', 123 , True]
+
+s = ['python','java', ['asp', 'php', 'scheme']]
+
+print(len(s))
+
+print(s[2][1])
+
+L = []
+
+print(len(L))
+
+# 元组 tuple tuple和list非常类似，但是tuple一旦初始化就不能修改
+
+classmates = ('Michael', 'Bob', 'Tracy')
+
+print(classmates)
+
+t = 12345, 54321, 'hello'
+print(t[0])
+u = t, (1, 2, 3, 4, 5)
+
+print(u)
+print(t[0])
+
+empty = ()
+singleton = ('笑嘻嘻')
+print(len(empty))
+print(len(singleton))
+print(singleton)
+
+# 元祖封装
+
+x, y, z = t
+print('x=', x)
+print('y=', y)
+print('z=', z)
+
+t = (1)
+
+print(t)
+
+t = (1,)
+print(t)
+
+t = ()
+
+print(t)
+
+# python在现实只有1个元素的tuple时候，也加一个逗号，以免你误解数学计算上的括号
+
+# 作业
+L = [
+    ['Apple', 'Google', 'Microsoft'],
+    ['Java', 'Python', 'Ruby', 'PHP'],
+    ['Adam', 'Bart', 'Lisa']
+]
+
+print(L[0][0])
+print(L[1][1])
+print(L[2][2])
+
+"""
+集合
+"""
+basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+print(basket)
+
+print(('orange' in basket))
+print(('crabgrass' in basket))
+
+a = set('abracadabra')
+b = set('alacazam')
+print(a)
+print(b)
+
+print(a - b)
+print(a | b)
+print(a & b)
+print(a ^ b)
+
+# 集合推导式语法
+a = {x for x in 'abracdfdfd' if x not in 'abc'}
+print(a)
+
 # 列表
 fruits = ['橘子', '苹果', '香蕉', '梨', '桃子']
 
@@ -116,7 +364,7 @@ for x in d:
 # iterator只能迭代一次，iteraable对象则没有这个限制
 
 class Data(object):
-
+ 
     def __init__(self, *args):
         self.data = list(args)
     
@@ -326,12 +574,13 @@ print(aset ^ bset)
 # 和列表推导式一样，集合推导式也被支持
 anotherset = {x for x in 'abracadabra' if x not in 'abc'}
 print(anotherset)
-
-# 字典
-# 字典是由键索引，可以是任何不变的类型：字符串和数字永远是键
-# 元祖可以用作键，如果它们只包含字符串，数字或元祖
-# 如果元祖直接和间接包含任何可变对象，则不能将其用作键，因为列表可以使用索引分配，切片分配或者方法修改
-
+"""
+ 字典
+ 字典是由键索引，可以是任何不变的类型：字符串和数字永远是键
+ 元祖可以用作键，如果它们只包含字符串，数字或元祖
+ 如果元祖直接和间接包含任何可变对象，则不能将其用作键，因为列表可以使用索引分配，切片分配或者方法修改
+"""
+print('-----dict begin-----')
 tel = {'jack' : 4098, 'sape' : 4139}
 tel['guido'] = 4127
 print(tel)
@@ -352,7 +601,9 @@ print({x : x**2 for x in (2, 4, 6)})
 # 当键是字符串的时候，可以容易的用关键字参数
 print(dict(sape=4139, guido=4123, jack=4098))
 
-# 循环技艺
+"""
+循环技巧
+"""
 knights = {'gallahad' : '明礼诚信', 'robin' : '快跑'}
 for k, v in knights.items():
     print(k, v)
@@ -376,6 +627,8 @@ basket = ['apple', 'orange', 'apple', 'pear', 'orange']
 for f in sorted(set(basket)):
     print(f)
 
+
+
 import math
 raw_data = [56.2, float('Nan'), 51.7, 55.3, 52.5, float('NaN'), 47.8]
 filtered_data = []
@@ -396,6 +649,8 @@ print(non_null)
 print((1, 2, 3) < (1, 2, 4))
 print([1, 2, 3] < [1, 2, 4])
 
-print('ABC' < 'C' < 'Pascal' > 'Python')
+print('ABC' < 'C' < 'Pascal' < 'Python')
+
+
 
 
