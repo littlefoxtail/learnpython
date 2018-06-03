@@ -25,21 +25,26 @@ for w in words[:]:
 print(words)
 
 # range 默认的step就是1，可以设置step哦
+print('range函数')
 for i in range(5):
     print(i)
 
 for i in range(0, 10, 2):
     print(i)
 
+# 需要迭代链表索引的话
 a = ['Mary', 'had', 'a', 'little', 'lamb']
 for i in range(len(a)):
     print(i, a[i])
 
+# 不过enumerate()更加方便 中文：列举的意思
+print('enumerate begin')
+for i, v in enumerate(a):
+    print(i, v)
+
+print('enumerate end')
 # range返回的是一个对象，而不是一个列表， list函数是一个迭代器,创建一个列表从 可迭代的
 print(list(range(10)))
-
-print('---------------')
-
 print(list(range(1, 2)))
 
 # break continue 和 else
@@ -68,9 +73,7 @@ def fib(n):
 
 fib(100)
 
-
 # def关键字用于定义函数，
-
 def fib2(n):
     result = []
     a, b = 0, 1
@@ -105,24 +108,24 @@ i = 6
 f()
 
 # 默认值只计算一次，如果是可变的对象的话，会累计调用
-def f(a, L=[]):
+def f1(a, L=[]):
     L.append(a)
     return L
 
-print(f(1))
-print(f(2))
-print(f(3))
+print(f1(1))
+print(f1(2))
+print(f1(3))
 
 # 如果不希望在后续调用之间共享默认值，则可以改写该功能
-def f(a, L=None):
+def f2(a, L=None):
     if L is None:
         L = []
     L.append(a)
     return L
 
-print(f(1))
-print(f(2))
-print(f(3))
+print(f2(1))
+print(f2(2))
+print(f2(3))
 
 # 关键字参数(Keyword Arguments)
 def parrot(voltage, state='s stiff', action='voom', type='Norwegian Blue'):
@@ -190,6 +193,7 @@ goway(**d)
 # def <lambda>(arguments):
 #    return expression
 
+# lambda表达式返回一个函数
 def make_incrementor(n):
     return lambda x: x + n
 
@@ -197,6 +201,8 @@ f = make_incrementor(42)
 print(f(10))
 print(f(10))
 
+# 另一个用途是将一个小函数作为参数传递
+print('lambda-----')
 pairs = [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
 print(lambda pair: pair[1])
 
@@ -209,9 +215,9 @@ pairs.sort(key=lambda pair: pair[1])
 print(pairs)
 
 # 注解
-def f(ham: str, eggs: str = 'eggs') -> str:
+def annotations(ham: str, eggs: str = 'eggs') -> str:
     print('Annotations:', f.__annotations__)
     print('Arguments:', ham, eggs)
     return ham + ' and' + eggs
 
-f('spam')
+annotations('spam')
