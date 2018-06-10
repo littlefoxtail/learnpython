@@ -22,9 +22,12 @@ class Triangle(object):
 def main():
     a, b, c = 3, 4, 5
     # 静态方法和类方法都是通过给类发消息来调用
-    if Triangle.is_valid(a, b, c)
+    if Triangle.is_valid(a, b, c):
         t = Triangle(a, b, c)
         print(t.perimeter())
         # 也可以通过给类发消息来调用对象方法但是要传入接收消息的对象作为参数
         print(Triangle.perimeter(t))
         print(t.area())
+
+if __name__ == "__main__":
+    main()
