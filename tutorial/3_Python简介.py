@@ -1,7 +1,9 @@
 # -*- coding:utf-8 -*-
 
 """
+
 python中的计算
+
 """
 
 # 除法的话返回的类型是带小数点的
@@ -50,7 +52,9 @@ flags = 1 << 2 | 1 << 3
 print(flags & 1 << 2)
 
 """
+
 字符串
+
 """
 # 单引号和双引号
 print('spam eggs')
@@ -132,6 +136,20 @@ print(word[42:])
 print(len(word))
 
 print(word[-1:])
+
+print('占位符 start----')
+
+a = int(input('a = '))
+b = int(input('b = '))
+print('%d + %d = %d' % (a, b, a + b))
+print('%d - %d = %d' % (a, b, a - b))
+print('%d * %d = %d' % (a, b, a * b))
+print('%d / %d = %d' % (a, b, a / b))
+print('%d // %d = %f' % (a, b, a // b))
+print('%d %% %d = %d' % (a, b, a % b))
+
+print('占位符 end------')
+
 
 '''
 Python有几个复合数据类型，用于表示其它的值。

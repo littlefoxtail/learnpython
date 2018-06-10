@@ -12,8 +12,9 @@
 #     print('Single')
 # else:
 #     print('More')
-
-# for语句
+"""
+for in 循环结构
+"""
 
 words = ['cat', 'window', 'defenestrate']
 for w in words:
@@ -46,6 +47,9 @@ print('enumerate end')
 # range返回的是一个对象，而不是一个列表， list函数是一个迭代器,创建一个列表从 可迭代的
 print(list(range(10)))
 print(list(range(1, 2)))
+
+
+
 
 # break continue 和 else
 # break 跳出循环

@@ -34,18 +34,32 @@ print("In global scope", spam)
 #     .
 #     <statement-N>
 
-class MyClass:
+class Student:
     """A simple example class"""
+    # __init__是一个特殊方法用于在创建对象时进行初始化操作
+    # 通过这个方法可以将学生对象绑定name和age两个属性
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def study(self, course_name):
+        print('%s正在学习%s' % (self.name, course_name))    
+
     i = 12345
 
     def f(self):
         return 'hello world'
-print(MyClass.i)
-print(MyClass.f)
-print(MyClass.__doc__)
+
+print('class begin ----')
+print(Student.i)
+print(Student.f)
+print(Student.__doc__)
+print('class end ------')
 
 # 类实例使用函数表示法
-x = MyClass()
+student = Student('项羽', '18')
+student.study('政治')
+
 
 # 当定义一个__init__()方法，类初始化会自动调用__init__()创建类
 # __init__()可以有参数
@@ -83,11 +97,11 @@ obj.out3()
 
 
 # Objects初始化
-x.counter = 1
-while x.counter < 10:
-    x.counter = x.counter * 2
-print(x.counter)
-del x.counter
+student.counter = 1
+while student.counter < 10:
+    student.counter = student.counter * 2
+print(student.counter)
+del student.counter
 
 # 另一种属性引用是方法
 # function是按名称调用的一段代码。它可以传递数据操作，并可以选择返回数据。所有传递给函数的数据都被显示传递
@@ -95,9 +109,9 @@ del x.counter
 # 1. method隐式地传递了被调用对象
 # 2. method能够对类中包含的数据进行操作
 
-print(x.f())
+print(student.f())
 
-xf = x.f
+xf = student.f
 print(xf())
 
 
@@ -332,4 +346,4 @@ print(sum(x*y for x,y in zip(xvec, yvec)))
 
 from math import pi, sin
 sine_table = {x: sin(x*pi/180) for x in range(0, 91)}
-unique_words = set(word for line in page for word in line.split())
+# unique_words = set(word for line in page for word in line.split())

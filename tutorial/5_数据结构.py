@@ -1,41 +1,62 @@
 # -*- coding:utf-8 -*-
 # python内置一种数据类型是列表：list。list是一种有序的集合，可以随时添加和删除其中的元素
+"""
+
+定义和使用列表
+    - 用下标访问元素
+    - 添加元素
+    - 删除元素
+    
+"""
 from collections import deque
-my = ['penglong']
 
 classmates = ['Michael', 'Bob', 'Tracy']
 
-print(my + classmates)
 
 print(len(classmates))
-
+# 通过下标访问元素
 print(classmates[-1])
-
 print(classmates[-2])
-
 print(classmates[-3])
 
+# 添加元素
 classmates.append("负面情绪满满的怎么办")
-
 print(classmates)
 
 classmates.insert(1, "爱吃棒棒糖")
-
 print(classmates)
 
+# 删除元素
 classmates.pop()
-
 print(classmates)
-
 classmates.pop(1)
-
 print(classmates)
 
+classmates.remove('Bob')
+print(classmates)
+
+"""
+列表常见操作
+    - 列表连接
+"""
+print('列表常见操作 begin----')
+# 列表连接
+another = ['赵武灵王']
+classmates += another
+print(classmates)
+
+# 列表切片
 classmates[:2] =[0, 0]
-
 print(classmates)
 
-print("more about list begin")
+print('***********切片 being************')
+print(classmates[-3:-1])
+
+print(classmates[:])
+
+print(classmates[::-1])
+
+print('***********切片 end**************')
 
 print(classmates.count(0), classmates.count('Tracy'))
 
@@ -52,7 +73,7 @@ print(classmates)
 
 
 
-print('more about list end')
+print('列表常见操作 end-------')
 
 
 
