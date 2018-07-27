@@ -19,7 +19,7 @@ os.system('adb -s %s push leak_upload.config /sdcard/' %(device))
 print("完成Push:")
 
 print('开始执行monkey')
-os.system('adb -s %s shell CLASSPATH=/sdcard/monkey.jar:/sdcard/framework.jar exec app_process /system/bin tv.panda.test.monkey.Monkey -p com.sina.weibo --uiautomatormix --running-minutes 100 -v -v' %(device))
+subprocess.call('adb -s %s shell CLASSPATH=/sdcard/monkey.jar:/sdcard/framework.jar exec app_process /system/bin tv.panda.test.monkey.Monkey -p com.sina.weibo --uiautomatormix --running-minutes 100 -v -v' %(device), shell = True)
 print('完成执行monkey')
 print('开始拷贝日志')
 os.system('adb -s %s pull /sdcard/crash-dump.log  test_result' %(device))

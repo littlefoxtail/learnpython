@@ -39,8 +39,12 @@ devices = get_devices()
 
 print("有这么几个设备",devices)
 
+
 for device in devices:
     print("设备：", device)
+    # model = os.popen('adb -s %s shell getprop ro.product.model' %(device)).readlines()
+    model = subprocess.check_output(['adb','-s', device, 'shell', 'getprop', 'ro.product.model']).decode('utf-8')
+    print("展小燕的model:", model)
     print("开始Push：")
     os.system('adb -s %s push monkey.jar /sdcard' %(device))
     os.system('adb -s %s push framework.jar /sdcard' %(device))
